@@ -14,4 +14,3 @@ def avalanche_score (message1 , message2 , algorithm = "sha256"):
 
 test = avalanche_score("Ali Hajipour" , "Ali Hajipounn")
 print(test)
-#asdsadsad
