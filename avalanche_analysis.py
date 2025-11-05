@@ -1,16 +1,37 @@
-from hash_visualizer import compute_hash , hex_to_bin
+from hash_visualizer import compute_hash, hex_to_bin
+import numpy as np
+import matplotlib.pyplot as plt
 
-def avalanche_score (message1 , message2 , algorithm = "sha256"):
-    hash1 = hex_to_bin(compute_hash(message1 , algorithm))
-    hash2 = hex_to_bin(compute_hash(message2 , algorithm))
+def avalanche_score(msg1: str, msg2: str, algorithm: str) -> float:
+
+    h1 = hex_to_bin(compute_hash(msg1, algorithm))
+    h2 = hex_to_bin(compute_hash(msg2, algorithm))
+
+    # Count differing bits
+    diff_bits = sum(b1 != b2 for b1, b2 in zip(h1, h2))
+    total_bits = len(h1)
+    return (diff_bits / total_bits) * 100.0
 
 
-    bits_difference = sum(b2 != b1 for b1 , b2 in zip(hash1 , hash2))
-    total_bits = len(hash1)
+def show_diff_plot(msg1: str, msg2: str, algorithm: str):
 
-    return (bits_difference/total_bits) * 100
+    # --- Step 1: Compute both hashes ---
+    h1 = compute_hash(msg1, algorithm)
+    h2 = compute_hash(msg2, algorithm)
 
+    # --- Step 2: Convert to binary arrays ---
+    b1 = np.array(list(hex_to_bin(h1)), dtype=int)
+    b2 = np.array(list(hex_to_bin(h2)), dtype=int)
 
+    # --- Step 3: Logical XOR → 1 if bits differ ---
+    diff = np.logical_xor(b1, b2).astype(int)
 
-test = avalanche_score("Ali Hajipour" , "Ali Hajipounn")
-print(test)
+    # --- Step 4: Matplotlib visualization ---
+    fig, ax = plt.subplots(figsize=(10, 1))
+    ax.imshow(diff.reshape(1, -1), cmap='coolwarm', aspect='auto')
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.set_title(f"Bit Differences for {algorithm.upper()} ({sum(diff)} flipped bits)",
+                 fontsize=10)
+    plt.tight_layout()
+    return fig

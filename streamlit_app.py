@@ -29,3 +29,7 @@ if st.button("Compute Avalanche Effect"):
     st.success(f" Avalanche Score: {score:.2f}% of bits differ")
 
     st.caption("Expected ≈ 50 % for a good cryptographic hash.")
+
+    st.subheader("Visual Bit Difference Map")
+    fig = show_diff_plot(msg1, msg2, algorithm)
+    st.pyplot(fig)
