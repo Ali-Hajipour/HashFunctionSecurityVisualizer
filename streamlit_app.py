@@ -1,6 +1,6 @@
 import streamlit as st
 from hash_visualizer import compute_hash
-from avalanche_analysis import avalanche_score
+from avalanche_analysis import avalanche_score , show_diff_plot
 
 
 st.set_page_config(page_title="Hash Function Security Visualizer" , layout="centered")
@@ -11,7 +11,7 @@ st.markdown("Ali Hajipour")
 url = "https://github.com/Ali-Hajipour"
 st.write("My  [Github](%s)" % url)
 
-#inputs
+#
 msg1 = st.text_input("The First Message")
 msg2 = st.text_input("The Second Message")
 
@@ -24,7 +24,6 @@ if st.button("Compute Avalanche Effect"):
     st.write(f"**{algorithm.upper()} Digest of Message 1:** `{h1}`")
     st.write(f"**{algorithm.upper()} Digest of Message 2:** `{h2}`")
 
-    # --- Avalanche Analysis ---
     score = avalanche_score(msg1, msg2, algorithm)
     st.success(f" Avalanche Score: {score:.2f}% of bits differ")
 
