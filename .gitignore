@@ -1,0 +1,61 @@
+# ============================================
+# Hash Function Security Visualizer Repository
+# .gitignore File
+# Author: Ali Hajipour (#alihajipour-it)
+# Date: 2025-11-06
+# ============================================
+
+# --- Python Cache & Virtual Environments ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py.class
+.venv/
+venv/
+ENV/
+env/
+# Jupyter and Streamlit temp sessions
+.ipynb_checkpoints/
+.streamlit/
+
+# --- macOS & System Artifacts ---
+.DS_Store
+Thumbs.db
+
+# --- Logs & Temporary Files ---
+*.log
+*.tmp
+*.bak
+
+# --- Build, Dist, and Packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Visual Output & Generated Data ---
+assets/*.png
+assets/*.jpg
+assets/*.jpeg
+assets/*.svg
+example_data/*.csv
+example_data/*.json
+
+# --- Environment & Credentials (just in case) ---
+*.env
+*.key
+*.pem
+*.crt
+*.config
+
+# --- Reports, Results, and Exports ---
+results.md
+exports/
+*.pdf
+*.docx
+
+# --- IDE & Editor Metadata ---
+.vscode/
+.idea/
+*.iml

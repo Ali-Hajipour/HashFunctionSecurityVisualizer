@@ -1,0 +1,20 @@
+# =====================================
+# Hash Function Security Visualizer
+# Requirements File
+# Author: Ali Hajipour (#alihajipour-it)
+# Date: 2025-11-06
+# =====================================
+
+# --- Core Dependencies ---
+streamlit==1.37.0        # Interactive UI framework
+numpy==1.26.4             # Numerical computation & array handling
+matplotlib==3.9.0         # Visualization backend (avalanche plots)
+
+
+# --- Built-in Libraries (already included in Python) ---
+# hashlib → used for cryptographic hash operations (standard library)
+
+# --- Notes ---
+# Tested on: macOS (Apple Silicon), Python 3.13
+# Installation command:
+#     pip install -r requirements.txt
