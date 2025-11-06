@@ -28,7 +28,7 @@ This visualizer makes those properties **observable and measurable**, enabling r
 - Avalanche score computation (percentage of changed bits)
 - Real‑time visualization via `Matplotlib`
 - Interactive UI built with `Streamlit`
-- Export functionality for research data (`CSV` / `JSON`)
+
 
 ---
 
